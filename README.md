@@ -86,18 +86,10 @@ $ tar czf state.tgz local.tgz
 $ cp /mnt/state.tgz state.tgz_original 
 ```
 
-Agora remova o arquivo `state.tgz` do diretorio `/mnt` e copie o seu `state.tgz` modificado para o `/mnt`
+Agora remova o arquivo `state.tgz` do diretorio `/mnt` e copie o seu `state.tgz` modificado para o `/mnt`.
 
+```shell
+$ cp state.tgz /mnt 
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
+Depois disso reinici o servidor deixe ele entra no sistem do VMware esxi, na tela de login digiti `root` e senha deixe em branco, Agora que tem o acesso ao console do esxi, altere a senha de root, rec adastre no vcenter e suba as maquinas virtuais, por causa desse procedimento elas não iniciam automaticamente. mesmo estando configuradas para isso.
