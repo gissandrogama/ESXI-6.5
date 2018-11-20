@@ -54,7 +54,48 @@ $ gzip -d local.tgz
 $ tar xvf local.tar
 ```
 
-Agora se executar o comando `ls -l`, irá verificar que apareceu o diretorio `/etc`, 
+Agora se executar o comando `ls -l`, irá verificar que apareceu o diretorio `/etc`, entre no diretorio e execute `ls -l`, verifique que nele tem o arquivo `shadow`. É esse aquivo que vai nos salvar.
+
+```shell
+$ cat shadown
+```
+
+Verifique que dentro do arquivo tem um token que corresponde a senha que foi configurada no VMware ESXI. Na primeira linha do arquivo veremos o seguinte conteúdo `root:token:135885:0:99999:7:::`. Agora vamos apagar o token e deixar em branco a linha do arquivo tem que ficar assim `root::135885:0:99999:7:::`.
+
+Para editar o arquivo usei o gedit apageui o token e salvei novamente.
+
+```shell
+$ gedit shadow
+```
+
+Feito isso teremos que reempacotar os arquivos novamente até voltar para aquele arquivo que copiamos do `/mnt` o `state.tgz`.
+
+### Comandos para Compactar
+
+Saia do diretorio `/etc` e recompacte o mesmo para o arquivo `local.tgz`.
+
+```shell
+$ cd ..
+$ tar czf local.tgz etc
+```
+
+Agora compacte o `local.tgz` em `state.tgz`, feito isso crie uma copia uma copia do arquivo original `state.tgz` do diretorio `/mnt` em algum diretorio que achar mais conveniente irei renomear o arquivo com o nome `state.tgz_original`.
+
+```shell
+$ tar czf state.tgz local.tgz
+$ cp /mnt/state.tgz state.tgz_original 
+```
+
+Agora remova o arquivo `state.tgz` do diretorio `/mnt` e copie o seu `state.tgz` modificado para o `/mnt`
+
+
+
+
+
+
+
+
+
 
 
 
